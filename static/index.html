@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .chat-box {
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .responses {
+      height: 800px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .responses,
+    textarea {
+      height: auto;
+      resize: vertical;
+    }
+
+    .response-container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .response-container,
+    img {
+      flex: 1;
+      margin-right: 10px;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .response-container,
+    textarea {
+      flex: 9;
+      margin-right: 10px;
+    }
+
+    .input-area {
+      display: flex;
+      width: 100%;
+    }
+
+    #model {
+      flex: 2;
+      margin-right: 10px;
+    }
+
+    #prompt {
+      flex: 8;
+      margin-right: 10px;
+    }
+
+    .input-area button {
+      padding: 5px 10px;
+    }
+  </style>
+  <link href="bot.png" rel="icon" type="image/x-icon">
+</head>
+
+<body>
+  <div class="chat-box">
+    <div class="responses" id="responses"></div>
+    <div class="input-area">
+      <input type="text" id="model" placeholder="Type a model..." />
+      <textarea type="text" id="prompt" placeholder="Type a prompt..." oninput="auto_grow(this)"></textarea>
+      <button onclick="sendPrompt()">Send</button>
+    </div>
+  </div>
+
+  <textarea style="display: none;" id="context">[]</textarea>
+
+  <script defer src="index.js"></script>
+
+</body>
+
+</html>
